@@ -1,60 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alfred 的个人主页</title>
-  <style>
-    body {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 24px;
-      font-family: system-ui, sans-serif;
-      line-height: 1.8;
-      color: #243047;
-      background: #f7f9fc;
-    }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d1117" />
+    <meta name="description" content="Q1anwaterwave 的个人博客，记录技术、想法与日常。" />
+    <title>Q1anwaterwave · Blog</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳转到正文</a>
 
-    h1 {
-      color: #2458a6;
-    }
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html" aria-label="Q1anwaterwave Blog 首页">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm0 12a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm10-6a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" stroke="currentColor" stroke-width="1.7"/><path d="M7 8.5v7m0-7v1.2a2 2 0 0 0 2 2h5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-name">Q1anwaterwave <span class="brand-slash">/</span> blog</span>
+        </a>
+        <nav class="header-nav" aria-label="主导航">
+          <a href="#articles">文章</a>
+          <a href="#about">关于</a>
+          <a class="header-github" href="https://github.com/Q1anwaterwave" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="切换亮色或暗色主题" title="切换主题">
+          <svg class="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </header>
 
-    section {
-      margin-top: 24px;
-      padding: 24px;
-      background: white;
-      border-radius: 12px;
-    }
+    <div class="profile-tabs-wrap">
+      <nav class="profile-tabs" aria-label="页面内容">
+        <a class="tab active" href="#overview" aria-current="page"><span class="tab-icon" aria-hidden="true">◫</span> Overview</a>
+        <a class="tab" href="#articles"><span class="tab-icon" aria-hidden="true">▤</span> Articles <span class="tab-count" id="article-count">0</span></a>
+        <a class="tab" href="#projects"><span class="tab-icon" aria-hidden="true">◇</span> Projects</a>
+        <a class="tab" href="#about"><span class="tab-icon" aria-hidden="true">ⓘ</span> About</a>
+      </nav>
+    </div>
 
-    a {
-      color: #2458a6;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>你好, 我是 Alfred</h1>
-    <p>欢迎来到我的个人主页.</p>
-  </header>
+    <div class="page-shell" id="overview">
+      <aside class="profile" aria-label="个人资料">
+        <div class="avatar-frame">
+          <img class="avatar" src="https://github.com/Q1anwaterwave.png" alt="Q1anwaterwave 的 GitHub 头像" />
+          <span class="avatar-fallback" aria-hidden="true">Q</span>
+          <span class="status-dot" title="个人博客" aria-hidden="true"></span>
+        </div>
+        <h1 class="profile-name">Q1anwaterwave</h1>
+        <p class="profile-handle">@Q1anwaterwave</p>
+        <p class="profile-bio">一个安静记录想法、技术与生活的地方。</p>
+        <a class="profile-button" href="https://github.com/Q1anwaterwave" target="_blank" rel="noopener noreferrer">查看 GitHub 主页 <span aria-hidden="true">↗</span></a>
+        <div class="profile-details">
+          <p><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 2.5h5a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-5a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3Z" stroke="currentColor"/><path d="m5.2 10.5 2.1-2.1 1.4 1.4 2.2-2.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg> 个人博客</p>
+          <p><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 2.5h4v3H6zM4 5.5h8v8H4z" stroke="currentColor" stroke-linejoin="round"/><path d="M6 8h4m-4 2h4" stroke="currentColor" stroke-linecap="round"/></svg> 静态 HTML · CSS · JavaScript</p>
+          <p><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 14s5-3.8 5-8A5 5 0 0 0 3 6c0 4.2 5 8 5 8Z" stroke="currentColor"/><circle cx="8" cy="6" r="1.5" stroke="currentColor"/></svg> 适配 GitHub Pages</p>
+        </div>
+        <div class="profile-divider"></div>
+        <span class="profile-small-title">链接</span>
+        <a class="sidebar-link" href="https://github.com/Q1anwaterwave" target="_blank" rel="noopener noreferrer">github.com/Q1anwaterwave <span aria-hidden="true">↗</span></a>
+      </aside>
 
-  <section>
-    <h2>关于我</h2>
-    <p>我是一名大学生, 对大气科学、数学和人工智能感兴趣.</p>
-  </section>
+      <main class="content" id="main">
+        <div class="section-label"><span>Q1anwaterwave</span> <span class="muted">/</span> <strong>README.md</strong><span class="label-line"></span><span class="readme-badge">Public</span></div>
 
-  <section>
-    <h2>研究与项目</h2>
-    <ul>
-      <li>基于深度学习的气候降尺度</li>
-      <li>气象数据分析与可视化</li>
-    </ul>
-  </section>
+        <section class="readme-card" aria-labelledby="welcome-title">
+          <div class="readme-top"><span class="readme-dot"></span> <span>个人主页 · 欢迎访问</span><span class="readme-top-right">README</span></div>
+          <div class="readme-body">
+            <p class="eyebrow"><span class="eyebrow-line"></span> HELLO, WORLD</p>
+            <h2 id="welcome-title">你好，欢迎来到<br /><span>我的博客。</span></h2>
+            <p class="intro">这里是 Q1anwaterwave 的个人空间。以后会把值得留下的技术笔记、思考和日常，慢慢整理成文章。</p>
+            <div class="intro-actions">
+              <a class="primary-link" href="#articles">阅读文章 <span aria-hidden="true">→</span></a>
+              <a class="secondary-link" href="https://github.com/Q1anwaterwave" target="_blank" rel="noopener noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="readme-rule"></div>
+            <div class="readme-stats" aria-label="博客状态">
+              <div><span class="stat-mark">01</span><span><strong>独立主页</strong><small>不依赖框架</small></span></div>
+              <div><span class="stat-mark">02</span><span><strong>轻量内容</strong><small>文章持续整理</small></span></div>
+              <div><span class="stat-mark">03</span><span><strong>开源入口</strong><small>连接 GitHub</small></span></div>
+            </div>
+          </div>
+        </section>
 
-  <section>
-    <h2>联系我</h2>
-    <p>
-      <a href="https://github.com/你的用户名">我的 GitHub</a>
-    </p>
-  </section>
-</body>
+        <section class="content-section" id="articles" aria-labelledby="articles-title">
+          <div class="section-heading"><div><p class="section-kicker">WRITING</p><h2 id="articles-title">最新文章</h2></div><span class="section-note">Articles & Notes</span></div>
+          <div id="posts-list" class="posts-list" aria-live="polite"><div class="empty-posts"><div class="empty-icon" aria-hidden="true">▤</div><div><h3>第一篇文章，正在路上。</h3><p>这里暂时还没有公开文章。等写下第一篇，它会出现在这里。</p></div><span class="empty-serial">001 / SOON</span></div></div>
+        </section>
+
+        <section class="content-section" id="projects" aria-labelledby="projects-title">
+          <div class="section-heading"><div><p class="section-kicker">EXPLORE</p><h2 id="projects-title">精选入口</h2></div><span class="section-note">Pinned</span></div>
+          <div class="pinned-grid">
+            <a class="pinned-card" href="https://github.com/Q1anwaterwave" target="_blank" rel="noopener noreferrer">
+              <div class="pinned-card-top"><span class="card-icon" aria-hidden="true">◇</span><span class="public-pill">Public</span></div>
+              <h3>GitHub 项目 <span aria-hidden="true">↗</span></h3>
+              <p>查看我的仓库、代码与公开项目。</p>
+              <span class="card-foot"><span class="language-dot purple"></span> Open source</span>
+            </a>
+            <a class="pinned-card" href="#articles">
+              <div class="pinned-card-top"><span class="card-icon" aria-hidden="true">▤</span><span class="public-pill">Blog</span></div>
+              <h3>文章归档 <span aria-hidden="true">→</span></h3>
+              <p>从笔记开始，慢慢把想法整理成文章。</p>
+              <span class="card-foot"><span class="language-dot blue"></span> Writing</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section about-section" id="about" aria-labelledby="about-title">
+          <div class="section-heading"><div><p class="section-kicker">A LITTLE MORE</p><h2 id="about-title">关于这个博客</h2></div></div>
+          <div class="about-card"><span class="about-symbol" aria-hidden="true">⌘</span><div><h3>保持简单，认真记录。</h3><p>这个页面只用 HTML、CSS 和少量 JavaScript 制作，可以直接作为 GitHub Pages 的首页。这里会逐步成为文章、项目和个人想法的入口。</p></div></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer"><span>© <span id="year"></span> Q1anwaterwave</span><span class="footer-separator">·</span><span>Made for the web, inspired by GitHub.</span><a href="#overview">返回顶部 ↑</a></footer>
+
+    <script src="./posts.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
